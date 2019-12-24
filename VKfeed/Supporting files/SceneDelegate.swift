@@ -8,15 +8,28 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
 
     var window: UIWindow?
-
-
+    
+    var authService: AuthService!
+    
+    static func shared() -> SceneDelegate {
+        return UIApplication.shared.delegate as! SceneDelegate
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as? AuthViewController
+        window?.rootViewController = authVC
+        window?.makeKeyAndVisible()
+        
+        self.authService = AuthService()
+        authService.delegate = self
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -48,6 +61,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    
+    
+    // MARK: - AuthServiceDelegate
+    
+    func authServiceShouldShow(_ viewController: UIViewController) {
+        print(#function)
+        window?.rootViewController?.present(viewController, animated: true, completion: nil)
+    }
+    
+    func authServiceSignIn() {
+        print(#function)
+    }
+    
+    func authServiceDidSignInFail() {
+        print(#function)
+    }
 
 }
 

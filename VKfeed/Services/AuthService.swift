@@ -25,6 +25,10 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     // delegate ссылается только на ссылочный тип
     weak var delegate: AuthServiceDelegate?
     
+    var token: String? {
+        return VKSdk.accessToken()?.accessToken
+    }
+    
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
         super.init()

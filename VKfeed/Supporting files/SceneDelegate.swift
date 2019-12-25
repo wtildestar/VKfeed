@@ -69,6 +69,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     
     func authServiceSignIn() {
         print(#function)
+        print("authServiceSignIn to print")
         let feedVC: FeedViewController = FeedViewController.loadFromStoryboard()
         let navVC = UINavigationController(rootViewController: feedVC)
         window?.rootViewController = navVC

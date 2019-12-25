@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7113CBF23B344DE00008E65 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7113CBE23B344DE00008E65 /* FeedViewController.swift */; };
+		D7113CC123B344F100008E65 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7113CC023B344F100008E65 /* FeedViewController.storyboard */; };
+		D76C82B223B34DB3000062D8 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C82B123B34DB3000062D8 /* UIViewController + Storyboard.swift */; };
 		D7FBFBDC23B11D40002AF94A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBFBDB23B11D40002AF94A /* AppDelegate.swift */; };
 		D7FBFBDE23B11D40002AF94A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBFBDD23B11D40002AF94A /* SceneDelegate.swift */; };
 		D7FBFBE523B11D42002AF94A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7FBFBE423B11D42002AF94A /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D7113CBE23B344DE00008E65 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		D7113CC023B344F100008E65 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
+		D76C82B123B34DB3000062D8 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		D7FBFBD823B11D40002AF94A /* VKfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FBFBDB23B11D40002AF94A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7FBFBDD23B11D40002AF94A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +63,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7113CC223B3451900008E65 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				D7113CBE23B344DE00008E65 /* FeedViewController.swift */,
+				D7113CC023B344F100008E65 /* FeedViewController.storyboard */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		D76C82B323B34DDF000062D8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D76C82B123B34DB3000062D8 /* UIViewController + Storyboard.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D7AF4E3D23B25D78009E022F /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,9 +112,11 @@
 		D7FBFBDA23B11D40002AF94A /* VKfeed */ = {
 			isa = PBXGroup;
 			children = (
+				D76C82B323B34DDF000062D8 /* Helpers */,
 				D7AF4E3D23B25D78009E022F /* Supporting files */,
 				D7FBFBF723B13BF1002AF94A /* Services */,
 				D7FBFBFC23B145CC002AF94A /* Auth */,
+				D7113CC223B3451900008E65 /* Feed */,
 			);
 			path = VKfeed;
 			sourceTree = "<group>";
@@ -184,6 +209,7 @@
 				D7FBFBE823B11D42002AF94A /* LaunchScreen.storyboard in Resources */,
 				D7FBFBFB23B145BA002AF94A /* AuthViewController.storyboard in Resources */,
 				D7FBFBE523B11D42002AF94A /* Assets.xcassets in Resources */,
+				D7113CC123B344F100008E65 /* FeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +243,8 @@
 			files = (
 				D7FBFBF923B145AB002AF94A /* AuthViewController.swift in Sources */,
 				D7FBFBDC23B11D40002AF94A /* AppDelegate.swift in Sources */,
+				D7113CBF23B344DE00008E65 /* FeedViewController.swift in Sources */,
+				D76C82B223B34DB3000062D8 /* UIViewController + Storyboard.swift in Sources */,
 				D7FBFBDE23B11D40002AF94A /* SceneDelegate.swift in Sources */,
 				D7FBFBF623B13BEE002AF94A /* AuthService.swift in Sources */,
 			);

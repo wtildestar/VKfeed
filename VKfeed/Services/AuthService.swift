@@ -9,7 +9,8 @@
 import Foundation
 import VKSdkFramework
 
-protocol AuthServiceDelegate {
+// protocol может использоваться только классами
+protocol AuthServiceDelegate: class {
     func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
     func authServiceDidSignInFail()
@@ -21,7 +22,8 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     private let appId = "7258057"
     private let vkSdk: VKSdk
     
-    var delegate: AuthServiceDelegate?
+    // delegate ссылается только на ссылочный тип
+    weak var delegate: AuthServiceDelegate?
     
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
@@ -34,16 +36,17 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     func wakeUpSession() {
         let scope = ["offline"]
         
-        VKSdk.wakeUpSession(scope) { (state, error) in
+        // [delegate] замыкание создает копию делегата delegate: AuthServiceDelegate? чтобы не изменять основной делегат
+        VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             if state == VKAuthorizationState.authorized {
                 print("VKAuthorizationState.authorized")
-                self.delegate?.authServiceSignIn()
+                delegate?.authServiceSignIn()
             } else if state == VKAuthorizationState.initialized {
                 VKSdk.authorize(scope)
                 print("VKAuthorizationState.initialized")
             } else {
                 print("auth problems, state \(state) error \(String(describing: error))")
-                self.delegate?.authServiceDidSignInFail()
+                delegate?.authServiceDidSignInFail()
             }
         }
     }
@@ -52,7 +55,9 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function) // #function подставляем имя функции
-        delegate?.authServiceSignIn()
+        if result.token != nil {
+            delegate?.authServiceSignIn()
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {

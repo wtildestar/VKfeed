@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
     
     func authServiceSignIn() {
         print(#function)
+        
     }
     
     func authServiceDidSignInFail() {
